@@ -3,7 +3,7 @@ import { pool } from "../database";
 
 class TiposController{
 
-    async getTipos(req: Request, res: Response) {
+    async getTipos(req:Request, res:Response) {
         try {
           const result = await pool.query('SELECT * FROM tb_tipos');
           res.json(result[0]);
@@ -37,7 +37,7 @@ class TiposController{
 
     async updateTipos (req:Request, res:Response){
         const {id_tipo} = req.params; 
-        await pool.query('UPDATE tb_tipos SET ? WHERE id = ?', [req.body, id_tipo]);
+        await pool.query('UPDATE tb_tipos SET ? WHERE id_tipo = ?', [req.body, id_tipo]);
         res.json({message:'Tipo Actualizado'});
     }
 

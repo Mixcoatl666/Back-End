@@ -12,7 +12,7 @@ class TiposRoutes{
         this.router.get('/', tiposController.getTipos);
         this.router.get('/:id_tipo', tiposController.getByTipos);
         this.router.post('/', tiposController.createTipos);
-        this.router.delete('/id_tipo', tiposController.deleteTipos);
+        this.router.delete('/:id_tipo', tiposController.deleteTipos);
         this.router.put('/:id_tipo', tiposController.updateTipos);
     }
 
