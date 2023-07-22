@@ -43,18 +43,18 @@ class TiposController {
             res.json({ message: 'Tipo Guardado' });
         });
     }
-    deleteTipos(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { id_tipo } = req.params;
-            yield database_1.pool.query('DELETE FROM tb_tipos WHERE id_tipo = ?', [id_tipo]);
-            res.json({ message: 'Tipo Eliminado' });
-        });
-    }
     updateTipos(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id_tipo } = req.params;
             yield database_1.pool.query('UPDATE tb_tipos SET ? WHERE id_tipo = ?', [req.body, id_tipo]);
             res.json({ message: 'Tipo Actualizado' });
+        });
+    }
+    deleteTipos(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id_tipo } = req.params;
+            yield database_1.pool.query('DELETE FROM tb_tipos WHERE id_tipo = ?', [id_tipo]);
+            res.json({ message: 'Tipo Eliminado' });
         });
     }
 }

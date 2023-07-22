@@ -1,0 +1,25 @@
+### Consultando todos los tipos
+GET http://localhost:3000/tipos
+
+### Consultando un tipo
+GET http://localhost:3000/tipos/8
+
+### Insertando un tipo
+POST http://localhost:3000/tipos
+Content-Type: application/json
+
+ {
+    "tipo": "Alcancias2"
+  }
+
+### Actualizando un tipo
+PUT http://localhost:3000/tipos/12
+Content-Type: application/json
+
+  {
+    "id_tipo": 12,
+    "tipo": "Saleros"
+  }
+
+### Eliminando un tipo
+DELETE http://localhost:3000/tipos/12
