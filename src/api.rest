@@ -1,25 +1,32 @@
 ### Consultando todos los tipos
-GET http://localhost:3000/tipos
+GET http://localhost:3000/clientes
 
 ### Consultando un tipo
-GET http://localhost:3000/tipos/8
+GET http://localhost:3000/clientes/1
 
 ### Insertando un tipo
-POST http://localhost:3000/tipos
+POST http://localhost:3000/clientes
 Content-Type: application/json
 
  {
-    "tipo": "Alcancias2"
+    "nom_cliente": "Josue",
+    "correo": "josue@gmail.com",
+    "direccion": "San Miguel #108",
+    "telefono": "4281111112",
+    "rfc": "XAXX110101000"
   }
 
 ### Actualizando un tipo
-PUT http://localhost:3000/tipos/12
+PUT http://localhost:3000/clientes/2
 Content-Type: application/json
 
   {
-    "id_tipo": 12,
-    "tipo": "Saleros"
+    "nom_cliente": "Josue",
+    "correo": "josue@gmail.com",
+    "direccion": "San Miguel #108",
+    "telefono": "4281111122",
+    "rfc": "XAXX110101000"
   }
 
 ### Eliminando un tipo
-DELETE http://localhost:3000/tipos/12
+DELETE http://localhost:3000/clientes/2
