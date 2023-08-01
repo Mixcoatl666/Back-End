@@ -11,51 +11,51 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.tiposController = void 0;
 const database_1 = require("../database");
-class TiposController {
-    getTipos(req, res) {
+class clientesController {
+    getClientes(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const result = yield database_1.pool.query('SELECT * FROM tb_tipos');
+                const result = yield database_1.pool.query('SELECT * FROM tb_clientes');
                 res.json(result[0]);
             }
             catch (error) {
                 if (error instanceof Error) {
-                    console.error('Error al obtener tipos:', error);
-                    res.status(500).json({ error: 'Error al obtener tipos', details: error.message });
+                    console.error('Error al obtener clientes:', error);
+                    res.status(500).json({ error: 'Error al obtener clientes', details: error.message });
                 }
                 else {
-                    console.error('Error al obtener tipos:', error);
-                    res.status(500).json({ error: 'Error al obtener tipos' });
+                    console.error('Error al obtener clientes:', error);
+                    res.status(500).json({ error: 'Error al obtener clientes' });
                 }
             }
         });
     }
-    getByTipos(req, res) {
+    getByClientes(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id_tipo } = req.params;
-            const result = yield database_1.pool.query('SELECT * FROM tb_tipos WHERE id_tipo = ?', [id_tipo]);
+            const { id_cliente } = req.params;
+            const result = yield database_1.pool.query('SELECT * FROM tb_clientes WHERE id_cliente = ?', [id_cliente]);
             res.json(result[0]);
         });
     }
-    createTipos(req, res) {
+    createClientes(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.pool.query('INSERT INTO tb_tipos SET ?', [req.body]);
-            res.json({ message: 'Tipo Guardado' });
+            yield database_1.pool.query('INSERT INTO tb_clientes SET ?', [req.body]);
+            res.json({ message: 'Cliente Guardado' });
         });
     }
-    updateTipos(req, res) {
+    updateClientes(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id_tipo } = req.params;
-            yield database_1.pool.query('UPDATE tb_tipos SET ? WHERE id_tipo = ?', [req.body, id_tipo]);
-            res.json({ message: 'Tipo Actualizado' });
+            const { id_cliente } = req.params;
+            yield database_1.pool.query('UPDATE tb_clientes SET ? WHERE id_cliente = ?', [req.body, id_cliente]);
+            res.json({ message: 'Cliente Actualizado' });
         });
     }
-    deleteTipos(req, res) {
+    deleteClientes(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id_tipo } = req.params;
-            yield database_1.pool.query('DELETE FROM tb_tipos WHERE id_tipo = ?', [id_tipo]);
-            res.json({ message: 'Tipo Eliminado' });
+            const { id_cliente } = req.params;
+            yield database_1.pool.query('DELETE FROM tb_clientes WHERE id_cliente = ?', [id_cliente]);
+            res.json({ message: 'Cliente Eliminado' });
         });
     }
 }
-exports.tiposController = new TiposController();
+exports.tiposController = new clientesController();

@@ -1,5 +1,6 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import tiposRoutes from './Routes/tipos-routes';
+import clientesRoutes from './Routes/clientes-routes';
 import morgan from 'morgan';
 import cors from 'cors';
 import indexRoutes from './Routes/index-routes';
@@ -27,6 +28,7 @@ class Server {
     this.app.use('/', indexRoutes);
     this.app.use('/tipos', tiposRoutes);
     this.app.use('/usuarios',usuariosRoutes);
+    this.app.use('/clientes', clientesRoutes);
   }
 
   // Manejador de errores
