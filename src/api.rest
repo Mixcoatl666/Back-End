@@ -1,3 +1,37 @@
+// ---- Usuarios ---- //
+### Consultando todos los usuarios
+GET http://localhost:3000/usuarios
+
+### Consultando un usuario
+GET http://localhost:3000/usuarios/5
+
+### Insertando un usuario
+POST http://localhost:3000/usuarios
+Content-Type: application/json
+
+  {
+    "nom_usuario": "Yo mero",
+    "clave": "hola123",
+    "correo": "apolinartrejo@utng.edu.mx"
+  }
+
+### Actualizando un usuario
+PUT http://localhost:3000/usuarios/5
+Content-Type: application/json
+
+  {
+    "id_usuario": 5,
+    "nom_usuario": "Yo mero",
+    "clave": "abracadabra",
+    "correo": "apolinartrejo@utng.edu.mx"
+  }
+
+### Eliminando un usuario
+DELETE http://localhost:3000/usuarios/5
+
+
+
+
 // ---- Tipos ---- //
 ### Consultando todos los tipos
 GET http://localhost:3000/tipos
