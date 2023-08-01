@@ -29,18 +29,19 @@ class TiposController{
         res.json({message:'Tipo Guardado'});
     }
 
-    async deleteTipos (req:Request, res:Response){
-        const {id_tipo} = req.params; 
-        await pool.query('DELETE FROM tb_tipos WHERE id_tipo = ?', [id_tipo]);
-        res.json({message:'Tipo Eliminado'});
-    }
+
 
     async updateTipos (req:Request, res:Response){
         const {id_tipo} = req.params; 
         await pool.query('UPDATE tb_tipos SET ? WHERE id_tipo = ?', [req.body, id_tipo]);
         res.json({message:'Tipo Actualizado'});
     }
-
+    
+    async deleteTipos (req:Request, res:Response){
+        const {id_tipo} = req.params; 
+        await pool.query('DELETE FROM tb_tipos WHERE id_tipo = ?', [id_tipo]);
+        res.json({message:'Tipo Eliminado'});
+    }
 }
 
 export const tiposController = new TiposController();
