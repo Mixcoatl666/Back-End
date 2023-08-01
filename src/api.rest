@@ -3,7 +3,7 @@
 GET http://localhost:3000/usuarios
 
 ### Consultando un usuario
-GET http://localhost:3000/usuarios/5
+GET http://localhost:3000/usuarios/6
 
 ### Insertando un usuario
 POST http://localhost:3000/usuarios
@@ -16,13 +16,13 @@ Content-Type: application/json
   }
 
 ### Actualizando un usuario
-PUT http://localhost:3000/usuarios/5
+PUT http://localhost:3000/usuarios/6
 Content-Type: application/json
 
   {
-    "id_usuario": 5,
+    "id_usuario": 6,
     "nom_usuario": "Yo mero",
-    "clave": "abracadabra",
+    "clave": "hola122",
     "correo": "apolinartrejo@utng.edu.mx"
   }
 
