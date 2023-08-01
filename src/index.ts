@@ -3,6 +3,7 @@ import tiposRoutes from './Routes/tipos-routes';
 import morgan from 'morgan';
 import cors from 'cors';
 import indexRoutes from './Routes/index-routes';
+import usuariosRoutes from './Routes/usuarios-routes';
 
 class Server {
   public app: Application;
@@ -25,6 +26,7 @@ class Server {
   routes(): void {
     this.app.use('/', indexRoutes);
     this.app.use('/tipos', tiposRoutes);
+    this.app.use('/usuarios',usuariosRoutes);
   }
 
   // Manejador de errores
