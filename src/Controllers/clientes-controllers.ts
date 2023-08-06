@@ -1,7 +1,7 @@
 import { Request,Response } from "express";
 import { pool } from "../database";
 
-class clientesController{
+class ClientesController{
 
     async getClientes(req:Request, res:Response) {
         try {
@@ -44,4 +44,4 @@ class clientesController{
     }
 }
 
-export const tiposController = new clientesController();
+export const clientesController = new ClientesController();

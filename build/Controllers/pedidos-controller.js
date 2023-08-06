@@ -9,53 +9,53 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.clientesController = void 0;
+exports.pedidosController = void 0;
 const database_1 = require("../database");
-class ClientesController {
-    getClientes(req, res) {
+class PedidosController {
+    getPedidos(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const result = yield database_1.pool.query('SELECT * FROM tb_clientes');
+                const result = yield database_1.pool.query('SELECT * FROM tb_pedidos');
                 res.json(result[0]);
             }
             catch (error) {
                 if (error instanceof Error) {
-                    console.error('Error al obtener clientes:', error);
-                    res.status(500).json({ error: 'Error al obtener clientes', details: error.message });
+                    console.error('Error al obtener pedidos:', error);
+                    res.status(500).json({ error: 'Error al obtener pedidos', details: error.message });
                 }
                 else {
-                    console.error('Error al obtener clientes:', error);
-                    res.status(500).json({ error: 'Error al obtener clientes' });
+                    console.error('Error al obtener pedidos:', error);
+                    res.status(500).json({ error: 'Error al obtener pedidos' });
                 }
             }
         });
     }
-    getByClientes(req, res) {
+    getByPedidos(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id_cliente } = req.params;
-            const result = yield database_1.pool.query('SELECT * FROM tb_clientes WHERE id_cliente = ?', [id_cliente]);
+            const { id_pedido } = req.params;
+            const result = yield database_1.pool.query('SELECT * FROM tb_pedidos WHERE id_pedido = ?', [id_pedido]);
             res.json(result[0]);
         });
     }
-    createClientes(req, res) {
+    createPedidos(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.pool.query('INSERT INTO tb_clientes SET ?', [req.body]);
-            res.json({ message: 'Cliente Guardado' });
+            yield database_1.pool.query('INSERT INTO tb_pedidos SET ?', [req.body]);
+            res.json({ message: 'Pedido Guardado' });
         });
     }
-    updateClientes(req, res) {
+    updatePedidos(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id_cliente } = req.params;
-            yield database_1.pool.query('UPDATE tb_clientes SET ? WHERE id_cliente = ?', [req.body, id_cliente]);
-            res.json({ message: 'Cliente Actualizado' });
+            const { id_pedido } = req.params;
+            yield database_1.pool.query('UPDATE tb_pedidos SET ? WHERE id_pedido = ?', [req.body, id_pedido]);
+            res.json({ message: 'Pedido Actualizado' });
         });
     }
-    deleteClientes(req, res) {
+    deletePedidos(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id_cliente } = req.params;
-            yield database_1.pool.query('DELETE FROM tb_clientes WHERE id_cliente = ?', [id_cliente]);
-            res.json({ message: 'Cliente Eliminado' });
+            const { id_pedido } = req.params;
+            yield database_1.pool.query('DELETE FROM tb_pedidos WHERE id_pedido = ?', [id_pedido]);
+            res.json({ message: 'Pedido Eliminado' });
         });
     }
 }
-exports.clientesController = new ClientesController();
+exports.pedidosController = new PedidosController();
