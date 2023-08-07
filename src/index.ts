@@ -7,6 +7,7 @@ import indexRoutes from './Routes/index-routes';
 import usuariosRoutes from './Routes/usuarios-routes';
 import uploadsRoutes from './Routes/uploads-routes';
 import path from 'path';
+import pedidosRoutes from './Routes/pedidos-routes';
 
 class Server {
   public app: Application;
@@ -33,6 +34,7 @@ class Server {
     this.app.use('/clientes', clientesRoutes);
     this.app.use('/galeria', uploadsRoutes);
     this.app.use('/uploads', express.static(path.resolve('uploads')))
+    this.app.use('/pedidos', pedidosRoutes);
   }
 
   // Manejador de errores
