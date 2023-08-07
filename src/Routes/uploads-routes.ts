@@ -1,8 +1,17 @@
 import { Router } from "express";
-import { uploadImage } from "../Controllers/uploads-controllers"; 
+import {  } from "../Controllers/uploads-controllers"; 
 
-const router = Router();
+class UploadRoutes {
+    public router:Router=Router();
 
-router.post("/upload", uploadImage);
+    constructor(){
+        this.config();
+    }
 
-export default router;
+    config():void{
+        this.router.get('/', )
+    }
+}
+
+const uploadsRoutes = new UploadRoutes();
+export default uploadsRoutes.router;
