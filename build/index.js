@@ -10,6 +10,7 @@ const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const index_routes_1 = __importDefault(require("./Routes/index-routes"));
 const usuarios_routes_1 = __importDefault(require("./Routes/usuarios-routes"));
+const proveedores_routes_1 = __importDefault(require("./Routes/proveedores-routes"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -29,6 +30,7 @@ class Server {
         this.app.use('/tipos', tipos_routes_1.default);
         this.app.use('/usuarios', usuarios_routes_1.default);
         this.app.use('/clientes', clientes_routes_1.default);
+        this.app.use('/proveedores', proveedores_routes_1.default);
     }
     // Manejador de errores
     errorHandler() {

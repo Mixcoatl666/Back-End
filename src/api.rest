@@ -5,7 +5,7 @@
 GET http://localhost:3000/usuarios
 
 ### Consultando un usuario
-GET http://localhost:3000/usuarios/3
+GET http://localhost:3000/usuarios/7
 
 ### Insertando un usuario
 POST http://localhost:3000/usuarios
@@ -18,12 +18,12 @@ Content-Type: application/json
   }
 
 ### Actualizando un usuario
-PUT http://localhost:3000/usuarios/5
+PUT http://localhost:3000/usuarios/7
 Content-Type: application/json
 
   {
-    "id_usuario": 5,
-    "nom_usuario": "Yo mero",
+    "id_usuario": 7,
+    "nom_usuario": "Apolinar",
     "clave": "abracadabra",
     "correo": "apolinartrejo@utng.edu.mx"
   }
@@ -98,3 +98,36 @@ Content-Type: application/json
 
 ### Eliminando un cliente
 DELETE http://localhost:3000/clientes/2
+
+
+// ----Proveedores---- //
+### Consultando proveedores
+GET http://localhost:3000/proveedores
+
+### Consultando un proveedor
+GET http://localhost:3000/proveedores/3
+
+###Insertando un proveedor
+POST http://localhost:3000/proveedores
+Content-Type: application/json
+  
+  {
+    "nom_proveedor": "Apolinar",
+    "correo": "apolinartrejo@gmail.com",
+    "telefono": "4181158224"
+  }
+
+### Actualizando un proveedor
+PUT http://localhost:3000/proveedores/3
+Content-Type: application/json
+
+  {
+    "id_proveedor": 3,
+    "nom_proveedor": "Apolinar",
+    "correo": "apolinartrejo@gmail.com",
+    "telefono": "4181824693"
+  }
+
+
+### Eliminando un proveedor
+DELETE http://localhost:3000/proveedores/3
