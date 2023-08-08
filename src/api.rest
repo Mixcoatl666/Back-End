@@ -1,11 +1,18 @@
 
+<<<<<<< Updated upstream
 // ---- Usuarios ---- //
 
+=======
+>>>>>>> Stashed changes
 ### Consultando todos los usuarios
 GET http://localhost:3000/usuarios
 
 ### Consultando un usuario
+<<<<<<< Updated upstream
 GET http://localhost:3000/usuarios/7
+=======
+GET http://localhost:3000/usuarios/5
+>>>>>>> Stashed changes
 
 ### Insertando un usuario
 POST http://localhost:3000/usuarios
@@ -17,8 +24,13 @@ Content-Type: application/json
     "correo": "apolinartrejo@utng.edu.mx"
   }
 
+<<<<<<< Updated upstream
 ### Actualizando un usuario
 PUT http://localhost:3000/usuarios/7
+=======
+### Actualizando un tipo
+PUT http://localhost:3000/usuarios/5
+>>>>>>> Stashed changes
 Content-Type: application/json
 
   {
