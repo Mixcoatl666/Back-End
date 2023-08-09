@@ -1,9 +1,21 @@
 import { Request, Response } from "express";
+import { pool } from "../database";
 
-export function uploadsController(req: Request, res: Response){
+class UploadsController{
 
+  async createPhoto(req: Request, res: Response){
 
-  return res.json({
-    message: 'Imagen Subida Correctamente'
-  })
+    console.log('Guardando Foto')
+    console.log(req.body)
+    
+    return res.json({
+      message: 'Imagen Subida Correctamente'
+    })
+  }
+
+  async getPhoto(req: Request, res: Response){
+``
+  }
 }
+
+export const uploadsController = new UploadsController();

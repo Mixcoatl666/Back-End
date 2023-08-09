@@ -1,5 +1,6 @@
 import { Router } from "express";
-import {  } from "../Controllers/uploads-controllers"; 
+import { uploadsController } from "../Controllers/uploads-controllers"; 
+import multer from "../libs/multer"
 
 class UploadRoutes {
     public router:Router=Router();
@@ -9,7 +10,11 @@ class UploadRoutes {
     }
 
     config():void{
-        this.router.get('/', )
+        this.router.get('/', uploadsController.getPhoto);
+        this.router.get('/:id',);
+        this.router.post('/', multer.single('image') ,uploadsController.createPhoto);
+        this.router.delete('/:id',);
+        this.router.put('/:id',);
     }
 }
 
