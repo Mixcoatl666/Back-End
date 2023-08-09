@@ -44,17 +44,16 @@ POST http://localhost:3000/tipos
 Content-Type: application/json
 
   {
-    "id_tipo": 11,
     "tipo": "Ollasa"
   }
 
 ### Actualizando un tipos
-PUT http://localhost:3000/tipos/1
+PUT http://localhost:3000/tipos/18
 Content-Type: application/json
 
   {
-    "id_tipo": 11,
-    "tipo": "Ollasa"
+    "id_tipo": 18,
+    "tipo": "Ollasb"
   }
 
 ### Eliminando un tipos
