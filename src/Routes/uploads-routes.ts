@@ -11,7 +11,7 @@ class UploadRoutes {
 
     config():void{
         this.router.get('/', uploadsController.getPhoto);
-        this.router.get('/:id',);
+        this.router.get('/:id_imagen', uploadsController.getByPhoto);
         this.router.post('/', multer.single('image') ,uploadsController.createPhoto);
         this.router.delete('/:id',);
         this.router.put('/:id',);

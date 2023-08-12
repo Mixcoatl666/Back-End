@@ -46,6 +46,16 @@ class UploadsController{
     }
   }
 
+  async getByPhoto (req:Request, res:Response){
+    const {id_imagen} = req.params;
+    const result = await pool.query('SELECT * FROM tb_galeria WHERE id_imagen = ?', [id_imagen]);
+    res.json(result[0]);
+  }
+
+  async updatePhoto (req:Request, res:Response){
+    const {id_imagen} = req.params;
+    await pool.query('UPDATE tb_galeria SET ? WHERE id_imagen', [req.body, id_imagen]);
+  }
 }
 
 export const uploadsController = new UploadsController();

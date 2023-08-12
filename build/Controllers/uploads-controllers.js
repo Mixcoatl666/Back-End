@@ -56,5 +56,18 @@ class UploadsController {
             }
         });
     }
+    getByPhoto(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id_imagen } = req.params;
+            const result = yield database_1.pool.query('SELECT * FROM tb_galeria WHERE id_imagen = ?', [id_imagen]);
+            res.json(result[0]);
+        });
+    }
+    updatePhoto(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id_imagen } = req.params;
+            yield database_1.pool.query('UPDATE tb_galeria SET ? WHERE id_imagen', [req.body, id_imagen]);
+        });
+    }
 }
 exports.uploadsController = new UploadsController();
