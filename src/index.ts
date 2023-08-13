@@ -4,8 +4,8 @@ import clientesRoutes from './Routes/clientes-routes';
 import morgan from 'morgan';
 import cors from 'cors';
 import indexRoutes from './Routes/index-routes';
-import usuariosRoutes from './Routes/usuarios-routes';
-
+import productosRoutes from './Routes/productos-routes';
+import materialesRoutes from './Routes/materiales-routes';
 class Server {
   public app: Application;
 
@@ -27,8 +27,9 @@ class Server {
   routes(): void {
     this.app.use('/', indexRoutes);
     this.app.use('/tipos', tiposRoutes);
-    this.app.use('/usuarios',usuariosRoutes);
     this.app.use('/clientes', clientesRoutes);
+    this.app.use('/productos', productosRoutes);
+    this.app.use('/materiales',materialesRoutes);
   }
 
   // Manejador de errores

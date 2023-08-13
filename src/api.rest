@@ -61,6 +61,91 @@ Content-Type: application/json
 DELETE http://localhost:3000/tipos/2
 
 
+// ---- Materiales ---- //
+### Consultando todos los materiales
+GET http://localhost:3000/materiales
+
+### Consultando un producto
+GET http://localhost:3000/materiales/9
+
+### Insertando un producto
+POST http://localhost:3000/productos
+Content-Type: application/json
+
+ {
+ 
+    "descripcion": "Maceta rana",
+    "tamano": "mediana",
+    "color": "verde",
+    "id_tipo": 5,
+    "imagen": "",
+    "precio_mayoreo": 390,
+    "precio_menudeo": 480,
+    "existencias": 80
+ }
+### Actualizando un producto
+PUT http://localhost:3000/productos/9
+Content-Type: application/json
+
+  {
+     "id_producto": 9,
+    "descripcion": "Maceta rana",
+    "tamano": "mediana",
+    "color": "rosa",
+    "id_tipo": 5,
+    "imagen": "",
+    "precio_mayoreo": 390,
+    "precio_menudeo": 480,
+    "existencias": 80
+  }
+
+### Eliminando un producto
+DELETE http://localhost:3000/productos/9
+
+
+
+
+// ---- Productos ---- //
+### Consultando todos los productos
+GET http://localhost:3000/productos
+
+### Consultando un producto
+GET http://localhost:3000/productos/9
+
+### Insertando un producto
+POST http://localhost:3000/productos
+Content-Type: application/json
+
+ {
+ 
+    "descripcion": "Maceta rana",
+    "tamano": "mediana",
+    "color": "verde",
+    "id_tipo": 5,
+    "imagen": "",
+    "precio_mayoreo": 390,
+    "precio_menudeo": 480,
+    "existencias": 80
+ }
+### Actualizando un producto
+PUT http://localhost:3000/productos/9
+Content-Type: application/json
+
+  {
+     "id_producto": 9,
+    "descripcion": "Maceta rana",
+    "tamano": "mediana",
+    "color": "rosa",
+    "id_tipo": 5,
+    "imagen": "",
+    "precio_mayoreo": 390,
+    "precio_menudeo": 480,
+    "existencias": 80
+  }
+
+### Eliminando un producto
+DELETE http://localhost:3000/productos/9
+
 
 
 // ---- Clientes ---- //
@@ -96,3 +181,4 @@ Content-Type: application/json
 
 ### Eliminando un cliente
 DELETE http://localhost:3000/clientes/2
+
