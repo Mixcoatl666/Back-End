@@ -8,9 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.uploadsController = void 0;
 const database_1 = require("../database");
+const fs_extra_1 = __importDefault(require("fs-extra"));
 class UploadsController {
     createPhoto(req, res) {
         var _a;
@@ -38,21 +42,49 @@ class UploadsController {
             }
         });
     }
+    deletePhoto(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params; // Get the ID of the photo to delete
+            try {
+                const connection = yield database_1.pool.getConnection(); // Get a connection from the pool
+                // Get the file path of the photo from the database
+                const result = yield connection.query('SELECT filePath FROM tb_galeria WHERE id = ?', [id]);
+                const rows = result[0]; // Cast the result to RowDataPacket[] type
+                if (rows.length === 0) {
+                    throw new Error('Photo not found'); // Handle case when no rows are returned
+                }
+                const filePath = rows[0].filePath;
+                // Delete the photo from the folder
+                fs_extra_1.default.unlinkSync(filePath);
+                // Delete the photo from the database
+                yield connection.query('DELETE FROM tb_galeria WHERE id = ?', [id]);
+                connection.release(); // Release the connection
+                return res.json({
+                    message: 'Imagen Eliminada Correctamente'
+                });
+            }
+            catch (error) {
+                console.error('Error al eliminar la imagen:', error);
+                return res.status(500).json({
+                    message: 'Error al eliminar la imagen'
+                });
+            }
+        });
+    }
     getPhoto(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-<<<<<<< Updated upstream
             try {
                 const result = yield database_1.pool.query('SELECT * FROM tb_galeria');
                 res.json(result[0]);
             }
             catch (error) {
                 if (error instanceof Error) {
-                    console.error('Error al obtener tipos:', error);
-                    res.status(500).json({ error: 'Error al obtener tipos', details: error.message });
+                    console.error('Error al obtener la informacion:', error);
+                    res.status(500).json({ error: 'Error al obtener la informacion', details: error.message });
                 }
                 else {
                     console.error('Error al obtener tipos:', error);
-                    res.status(500).json({ error: 'Error al obtener tipos' });
+                    res.status(500).json({ error: 'Error al obtener la informacion' });
                 }
             }
         });
@@ -68,8 +100,6 @@ class UploadsController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id_imagen } = req.params;
             yield database_1.pool.query('UPDATE tb_galeria SET ? WHERE id_imagen', [req.body, id_imagen]);
-=======
->>>>>>> Stashed changes
         });
     }
 }
