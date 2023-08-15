@@ -13,6 +13,8 @@ class ClientesRoutes {
         this.router.post('/', clientes_controllers_1.clientesController.createClientes);
         this.router.delete('/:id_cliente', clientes_controllers_1.clientesController.deleteClientes);
         this.router.put('/:id_cliente', clientes_controllers_1.clientesController.updateClientes);
+        this.router.post('/login', clientes_controllers_1.clientesController.login);
+        this.router.post('/registro', clientes_controllers_1.clientesController.registro);
     }
 }
 const clientesRoutes = new ClientesRoutes();

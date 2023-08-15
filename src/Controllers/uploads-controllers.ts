@@ -55,9 +55,8 @@ class UploadsController{
   async updatePhoto (req:Request, res:Response){
     const {id_imagen} = req.params;
     await pool.query('UPDATE tb_galeria SET ? WHERE id_imagen', [req.body, id_imagen]);
-  async getPhoto(req: Request, res: Response){
-
   }
+
 }
 
-export const uploadsController = new UploadsController();
+export const uploadsController = new UploadsController()

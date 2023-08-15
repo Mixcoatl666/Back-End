@@ -40,7 +40,6 @@ class UploadsController {
     }
     getPhoto(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-<<<<<<< Updated upstream
             try {
                 const result = yield database_1.pool.query('SELECT * FROM tb_galeria');
                 res.json(result[0]);
@@ -68,8 +67,6 @@ class UploadsController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id_imagen } = req.params;
             yield database_1.pool.query('UPDATE tb_galeria SET ? WHERE id_imagen', [req.body, id_imagen]);
-=======
->>>>>>> Stashed changes
         });
     }
 }
