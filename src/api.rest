@@ -74,11 +74,12 @@ POST http://localhost:3000/clientes
 Content-Type: application/json
 
  {
-    "nom_cliente": "Mario",
-    "correo": "mario@gmail.com",
+    "nom_cliente": "Josue",
+    "correo": "josue@gmail.com",
     "direccion": "San #108",
     "telefono": "4181231234",
-    "rfc": "XAXX110101000"
+    "rfc": "XAXX110101000",
+    "pass": "12345"
   }
 
 ### Actualizando un cliente
@@ -90,11 +91,12 @@ Content-Type: application/json
     "correo": "josue@gmail.com",
     "direccion": "San Miguel #108",
     "telefono": "4281111122",
-    "rfc": "XAXX110101000"
+    "rfc": "XAXX110101000",
+    "pass": "12345"
   }
 
 ### Eliminando un cliente
-DELETE http://localhost:3000/clientes/2
+DELETE http://localhost:3000/clientes/90
 
 
 
@@ -131,3 +133,26 @@ Content-Type: application/json
 
 ### Eliminando un pedido
 DELETE http://localhost:3000/pedidos/4
+
+
+### Cliente login
+POST http://localhost:3000/clientes/login
+Content-Type: application/json
+
+{
+  "correo": "josue@gmail.com",
+  "pass": "1245"
+}
+
+### Cliente registro
+POST http://localhost:3000/clientes/registro
+Content-Type: application/json
+
+{
+  "nom_cliente": "Josep",
+  "correo": "jos@gmail.com",
+  "direccion": "San Miguel #108",
+  "telefono": "4281111122",
+  "rfc": "XAXX110101000",
+  "pass": "12345"
+}

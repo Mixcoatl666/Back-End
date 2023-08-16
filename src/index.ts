@@ -9,6 +9,7 @@ import uploadsRoutes from './Routes/uploads-routes';
 import path from 'path';
 import pedidosRoutes from './Routes/pedidos-routes';
 
+
 class Server {
   public app: Application;
 
