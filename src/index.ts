@@ -5,7 +5,10 @@ import morgan from 'morgan';
 import cors from 'cors';
 import indexRoutes from './Routes/index-routes';
 import usuariosRoutes from './Routes/usuarios-routes';
-import proveedoresRoutes from './Routes/proveedores-routes';
+import uploadsRoutes from './Routes/uploads-routes';
+import path from 'path';
+import pedidosRoutes from './Routes/pedidos-routes';
+
 
 class Server {
   public app: Application;
@@ -30,7 +33,9 @@ class Server {
     this.app.use('/tipos', tiposRoutes);
     this.app.use('/usuarios',usuariosRoutes);
     this.app.use('/clientes', clientesRoutes);
-    this.app.use('/proveedores', proveedoresRoutes);
+    this.app.use('/galeria', uploadsRoutes);
+    this.app.use('/uploads', express.static(path.resolve('uploads')))
+    this.app.use('/pedidos', pedidosRoutes);
   }
 
   // Manejador de errores

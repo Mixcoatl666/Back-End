@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { tiposController } from "../Controllers/clientes-controllers";
+import { clientesController } from "../Controllers/clientes-controllers";
 
 class ClientesRoutes{
     public router:Router=Router();
@@ -9,14 +9,16 @@ class ClientesRoutes{
     }
 
     config():void{
-        this.router.get('/', tiposController.getClientes);
-        this.router.get('/:id_cliente', tiposController.getByClientes);
-        this.router.post('/', tiposController.createClientes);
-        this.router.delete('/:id_cliente', tiposController.deleteClientes);
-        this.router.put('/:id_cliente', tiposController.updateClientes);
+        this.router.get('/', clientesController.getClientes);
+        this.router.get('/:id_cliente', clientesController.getByClientes);
+        this.router.post('/', clientesController.createClientes);
+        this.router.delete('/:id_cliente', clientesController.deleteClientes);
+        this.router.put('/:id_cliente', clientesController.updateClientes);
+        this.router.post('/login', clientesController.login);
+        this.router.post('/registro', clientesController.registro);
     }
 
 }
 
-const tiposRoutes = new ClientesRoutes();
-export default tiposRoutes.router;
+const clientesRoutes = new ClientesRoutes();
+export default clientesRoutes.router;

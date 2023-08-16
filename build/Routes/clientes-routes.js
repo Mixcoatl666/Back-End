@@ -8,12 +8,14 @@ class ClientesRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', clientes_controllers_1.tiposController.getClientes);
-        this.router.get('/:id_cliente', clientes_controllers_1.tiposController.getByClientes);
-        this.router.post('/', clientes_controllers_1.tiposController.createClientes);
-        this.router.delete('/:id_cliente', clientes_controllers_1.tiposController.deleteClientes);
-        this.router.put('/:id_cliente', clientes_controllers_1.tiposController.updateClientes);
+        this.router.get('/', clientes_controllers_1.clientesController.getClientes);
+        this.router.get('/:id_cliente', clientes_controllers_1.clientesController.getByClientes);
+        this.router.post('/', clientes_controllers_1.clientesController.createClientes);
+        this.router.delete('/:id_cliente', clientes_controllers_1.clientesController.deleteClientes);
+        this.router.put('/:id_cliente', clientes_controllers_1.clientesController.updateClientes);
+        this.router.post('/login', clientes_controllers_1.clientesController.login);
+        this.router.post('/registro', clientes_controllers_1.clientesController.registro);
     }
 }
-const tiposRoutes = new ClientesRoutes();
-exports.default = tiposRoutes.router;
+const clientesRoutes = new ClientesRoutes();
+exports.default = clientesRoutes.router;

@@ -3,7 +3,7 @@
 GET http://localhost:3000/usuarios
 
 ### Consultando un usuario
-GET http://localhost:3000/usuarios/5
+GET http://localhost:3000/usuarios/6
 
 ### Insertando un usuario
 POST http://localhost:3000/usuarios
@@ -15,14 +15,14 @@ Content-Type: application/json
     "correo": "apolinartrejo@utng.edu.mx"
   }
 
-### Actualizando un tipo
-PUT http://localhost:3000/usuarios/5
+### Actualizando un usuario
+PUT http://localhost:3000/usuarios/6
 Content-Type: application/json
 
   {
-    "id_usuario": 7,
-    "nom_usuario": "Apolinar",
-    "clave": "abracadabra",
+    "id_usuario": 6,
+    "nom_usuario": "Yo mero",
+    "clave": "hola122",
     "correo": "apolinartrejo@utng.edu.mx"
   }
 
@@ -44,17 +44,16 @@ POST http://localhost:3000/tipos
 Content-Type: application/json
 
   {
-    "id_tipo": 11,
     "tipo": "Ollasa"
   }
 
 ### Actualizando un tipos
-PUT http://localhost:3000/tipos/1
+PUT http://localhost:3000/tipos/18
 Content-Type: application/json
 
   {
-    "id_tipo": 11,
-    "tipo": "Ollasa"
+    "id_tipo": 18,
+    "tipo": "Ollasb"
   }
 
 ### Eliminando un tipos
@@ -75,11 +74,12 @@ POST http://localhost:3000/clientes
 Content-Type: application/json
 
  {
-    "nom_cliente": "Mario",
-    "correo": "mario@gmail.com",
+    "nom_cliente": "Josue",
+    "correo": "josue@gmail.com",
     "direccion": "San #108",
     "telefono": "4181231234",
-    "rfc": "XAXX110101000"
+    "rfc": "XAXX110101000",
+    "pass": "12345"
   }
 
 ### Actualizando un cliente
@@ -91,41 +91,68 @@ Content-Type: application/json
     "correo": "josue@gmail.com",
     "direccion": "San Miguel #108",
     "telefono": "4281111122",
-    "rfc": "XAXX110101000"
+    "rfc": "XAXX110101000",
+    "pass": "12345"
   }
 
 ### Eliminando un cliente
-DELETE http://localhost:3000/clientes/2
+DELETE http://localhost:3000/clientes/90
 
 
-// ----Proveedores---- //
-### Consultando proveedores
-GET http://localhost:3000/proveedores
 
-### Consultando un proveedor
-GET http://localhost:3000/proveedores/3
+// ---- Pedidos ---- //
+### Consultando todos los pedidos
+GET http://localhost:3000/pedidos
 
-###Insertando un proveedor
-POST http://localhost:3000/proveedores
-Content-Type: application/json
-  
-  {
-    "nom_proveedor": "Apolinar",
-    "correo": "apolinartrejo@gmail.com",
-    "telefono": "4181158224"
-  }
+### Consultando un pedidos
+GET http://localhost:3000/pedidos/1
 
-### Actualizando un proveedor
-PUT http://localhost:3000/proveedores/3
+### Insertando un pedido
+POST http://localhost:3000/pedidos
 Content-Type: application/json
 
-  {
-    "id_proveedor": 3,
-    "nom_proveedor": "Apolinar",
-    "correo": "apolinartrejo@gmail.com",
-    "telefono": "4181824693"
+ {
+    "id_cliente": 1,
+    "id_usuario": 2,
+    "fecha": "2023-08-01T06:00:00.000Z",
+    "monto": 450,
+    "estatus": "En proceso"
   }
 
+### Actualizando un pedido
+PUT http://localhost:3000/pedidos/4
+Content-Type: application/json
 
-### Eliminando un proveedor
-DELETE http://localhost:3000/proveedores/3
+  {
+    "id_cliente": 2,
+    "id_usuario": 2,
+    "fecha": "2023-08-01T06:00:00.000Z",
+    "monto": 450,
+    "estatus": "En proceso"
+  }
+
+### Eliminando un pedido
+DELETE http://localhost:3000/pedidos/4
+
+
+### Cliente login
+POST http://localhost:3000/clientes/login
+Content-Type: application/json
+
+{
+  "correo": "josue@gmail.com",
+  "pass": "1245"
+}
+
+### Cliente registro
+POST http://localhost:3000/clientes/registro
+Content-Type: application/json
+
+{
+  "nom_cliente": "Josep",
+  "correo": "jos@gmail.com",
+  "direccion": "San Miguel #108",
+  "telefono": "4281111122",
+  "rfc": "XAXX110101000",
+  "pass": "12345"
+}
