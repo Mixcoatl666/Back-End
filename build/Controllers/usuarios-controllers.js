@@ -57,5 +57,33 @@ class UsuariosController {
             res.json({ message: 'Usuario Actualizado' });
         });
     }
+    login(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { correo, clave } = req.body;
+            try {
+                const result = yield database_1.pool.query('SELECT * FROM tb_usuarios WHERE correo = ? AND clave = ?', [correo, clave]);
+                const rows = result[0];
+                console.log('Correo: ' + correo);
+                console.log('Pass: ' + clave);
+                if (rows.length > 0) {
+                    // Usuario autenticado
+                    res.json({ message: 'Autenticación exitosa' });
+                }
+                else {
+                    res.status(401).json({ error: 'Datos incorrectos' });
+                }
+            }
+            catch (error) {
+                if (error instanceof Error) {
+                    console.error('Error en inicio de sesión:', error);
+                    res.status(500).json({ error: 'Error en inicio de sesión', details: error.message });
+                }
+                else {
+                    console.error('Error en inicio de sesión:', error);
+                    res.status(500).json({ error: 'Error en inicio de sesión' });
+                }
+            }
+        });
+    }
 }
 exports.usuariosController = new UsuariosController();

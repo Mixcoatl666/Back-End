@@ -13,6 +13,7 @@ class UsuariosRoutes {
         this.router.post('/', usuarios_controllers_1.usuariosController.createUsuarios);
         this.router.delete('/:id', usuarios_controllers_1.usuariosController.deleteUsuario);
         this.router.put('/:id', usuarios_controllers_1.usuariosController.updateUsuario);
+        this.router.post('/login', usuarios_controllers_1.usuariosController.login);
     }
 }
 const usuariosRoutes = new UsuariosRoutes();

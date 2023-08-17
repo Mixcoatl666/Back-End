@@ -1,5 +1,6 @@
 import { Request,Response } from "express";
 import { pool } from "../database";
+import { ResultSetHeader, RowDataPacket } from "mysql2";
 
 class UsuariosController{
 
@@ -41,6 +42,29 @@ class UsuariosController{
         res.json({message:'Usuario Actualizado'});
     }
 
+    async login(req: Request, res: Response) {
+      const { correo, clave } = req.body;
+      try {
+        const result = await pool.query('SELECT * FROM tb_usuarios WHERE correo = ? AND clave = ?', [correo, clave]);
+        const rows = result[0] as RowDataPacket[];
+        console.log('Correo: ' + correo);
+        console.log('Pass: ' + clave);
+        if (rows.length > 0) {
+          // Usuario autenticado
+          res.json({ message: 'Autenticación exitosa' });
+        } else {
+          res.status(401).json({ error: 'Datos incorrectos' });
+        }
+      } catch (error) {
+        if (error instanceof Error) {
+          console.error('Error en inicio de sesión:', error);
+          res.status(500).json({ error: 'Error en inicio de sesión', details: error.message });
+        } else {
+          console.error('Error en inicio de sesión:', error);
+          res.status(500).json({ error: 'Error en inicio de sesión' });
+        }
+      }
+    }
 }
 
 export const usuariosController = new UsuariosController();
