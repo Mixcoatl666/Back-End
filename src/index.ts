@@ -1,11 +1,11 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import tiposRoutes from './Routes/tipos-routes';
 import clientesRoutes from './Routes/clientes-routes';
+import productosRoutes from './Routes/productos-routes';
+import materialesRoutes from './Routes/materiales-routes';
 import morgan from 'morgan';
 import cors from 'cors';
 import indexRoutes from './Routes/index-routes';
-import productosRoutes from './Routes/productos-routes';
-import materialesRoutes from './Routes/materiales-routes';
 class Server {
   public app: Application;
 

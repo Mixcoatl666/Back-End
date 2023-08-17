@@ -6,11 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const tipos_routes_1 = __importDefault(require("./Routes/tipos-routes"));
 const clientes_routes_1 = __importDefault(require("./Routes/clientes-routes"));
+const productos_routes_1 = __importDefault(require("./Routes/productos-routes"));
+const materiales_routes_1 = __importDefault(require("./Routes/materiales-routes"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const index_routes_1 = __importDefault(require("./Routes/index-routes"));
-const productos_routes_1 = __importDefault(require("./Routes/productos-routes"));
-const materiales_routes_1 = __importDefault(require("./Routes/materiales-routes"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
